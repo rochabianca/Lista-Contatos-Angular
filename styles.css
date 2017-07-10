@@ -1,0 +1,119 @@
+/* Master Styles */
+body {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+h1 {
+  text-align: center;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.menu {
+  background: #352567; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, #352567, #5B4C9E); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, #352567, #5B4C9E); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, #352567, #5B4C9E); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, #352567, #5B4C9E); /* Standard syntax */
+
+  padding: 10px 15px;
+  margin-bottom: 30px;
+}
+
+.menu-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  color: #FAFFEC;
+  margin-top: 10px;
+  transition: .5s ease;
+}
+
+.logo:hover {
+  color: #96C8F5;
+}
+
+.menu-lista {
+  display: flex !important;
+}
+
+.menu-lista ul {
+  display: flex;
+  list-style: none;
+  margin-top: 15px;
+}
+
+.menu-lista ul li a {
+  padding: 15px 15px;
+  color: #FAFFEC;
+  transition: .5s ease;
+}
+
+.menu-lista ul li a:hover {
+  color: #96C8F5;
+}
+
+.botao {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.25;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    -webkit-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+}
+
+.botao-search {
+    color: #FAFFEC;
+    background-image: none;
+    background-color: transparent;
+    border-color: #96C8F5;
+}
+
+.botao-search:hover {
+  color: #FAFFEC;
+  background: #96C8F5
+}
+
+.botao-add {
+  color: #FAFFEC !important;
+  font-size: 20px;
+  font-weight: bold;
+  background: #A19DD9;
+}
+
+/*Contatos-lista.component*/
+
+.titulo {
+  color: #352567;
+}
+
+.contatos {
+  margin-bottom: 30px;
+}
+
+.table-striped tbody tr:nth-of-type(odd)  {
+  background-color:  rgba(217, 207, 244, .5);
+}
+
+tr:hover {
+  background-color: rgba(217, 207, 244, .5) !important;
+} 
