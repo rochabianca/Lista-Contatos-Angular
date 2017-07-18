@@ -7,25 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
-const router_1 = require("@angular/router");
-const appRoutes = [
-    {
-        path: '',
-        redirectTo: '/contato',
-        pathMatch: 'full'
+let DialogService = class DialogService {
+    confirm(message) {
+        return new Promise(resolve => {
+            return resolve(window.confirm(message || 'Confirmar?'));
+        });
     }
-];
-let AppRoutingModule = class AppRoutingModule {
 };
-AppRoutingModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            router_1.RouterModule.forRoot(appRoutes)
-        ],
-        exports: [
-            router_1.RouterModule
-        ]
-    })
-], AppRoutingModule);
-exports.AppRoutingModule = AppRoutingModule;
-//# sourceMappingURL=app-routing.module.js.map
+DialogService = __decorate([
+    core_1.Injectable()
+], DialogService);
+exports.DialogService = DialogService;
+//# sourceMappingURL=dialog.service.js.map

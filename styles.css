@@ -114,6 +114,10 @@ a {
   background-color:  rgba(217, 207, 244, .5);
 }
 
+tr {
+  cursor: pointer;
+}
+
 tr:hover {
   background-color: rgba(217, 207, 244, .5) !important;
 } 

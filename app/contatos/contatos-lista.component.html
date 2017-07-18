@@ -20,11 +20,11 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let c of contatos" [routerLink]="['/contato/save']">
+          <tr *ngFor="let c of contatos" [routerLink]="['/contato/save', c.id]">
             <th>{{c.nome}}</th>
             <th>{{c.email}}</th>
             <th>{{c.telefone}}</th>
-            <th><button class="btn btn-danger">Deletar</button></th>      
+            <th><button class="btn btn-danger"(click)="onDelete(c); $event.stopPropagation()">Deletar</button></th>      
           </tr>
         </tbody>
       </table>

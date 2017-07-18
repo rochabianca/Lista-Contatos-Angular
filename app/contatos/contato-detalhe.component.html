@@ -1,23 +1,26 @@
 <div class="container">
   <h2>Salvar Contato</h2>
-  <form>
+  <form (ngSubmit)="onSubmit()" #contatoForm="ngForm" novalidate>
 
-    <div class="form-group">
-      <label for="nome">Nome</label>
-      <input type="text" class="form-control" placeholder="Insira o nome">
+    <div [ngClass]="getFormGroupClass(nome.valid, nome.pristine)">
+      <label for="nome" class="form-control-label">Nome</label>
+      <input type="text" [ngClass]="getFormControlClass(nome.valid, nome.pristine)" placeholder="Insira o nome" required #nome="ngModel" name="nome" [(ngModel)]="contato.nome">
+      <div class="form-control-feedback" [hidden]="nome.valid || nome.pristine">O campo nome é obrigatório</div>
     </div>
 
-    <div class="form-group">
+    <div [ngClass]="getFormGroupClass(email.valid, email.pristine)">
       <label for="email">Email</label>
-      <input type="text" class="form-control" placeholder="Insira o email">
+      <input type="text" [ngClass]="getFormControlClass(email.valid, email.pristine)" placeholder="Insira o email" #email="ngModel" name="email" [(ngModel)]="contato.email" required>
+      <div class="form-control-feedback" [hidden]="email.valid || email.pristine">O campo email é obrigatório</div>
     </div>
 
-    <div class="form-group">
+    <div [ngClass]="getFormGroupClass(telefone.valid, telefone.pristine)">
       <label for="telefone">Telefone</label>
-      <input type="text" class="form-control" placeholder="Insira o telefone">
+      <input type="text" [ngClass]="getFormControlClass(telefone.valid, telefone.pristine)" placeholder="Insira o telefone" #telefone="ngModel" name="telefone" [(ngModel)]="contato.telefone" required>
+      <div class="form-control-feedback" [hidden]="telefone.valid || telefone.pristine">O campo telefone é obrigatório</div>
     </div>
 
-    <button type="submit" class="btn btn-sucess">Salvar</button>
+    <button type="submit" class="btn btn-success" [disabled]="!contatoForm.form.valid">Salvar</button>
     <a href="" class="btn btn-secundary" routerLink="/">Voltar</a>
   </form>
 </div>
