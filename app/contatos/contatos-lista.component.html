@@ -8,6 +8,16 @@
 
       </div>
 
+      <div [ngClass]="classesCSS" role="alert" *ngIf="mensagem">
+        <span [ngSwitch]="mensagem.tipo">
+          <strong *ngSwitchCase="'danger'">Erro! </strong>
+          <strong *ngSwitchCase="'warning'">Alerta! </strong>
+          <strong *ngSwitchCase="'success'">Sucesso! </strong>
+          <strong *ngSwitchDefault>Informação! </strong>
+        </span>
+         {{ mensagem.texto }}
+      </div>
+
       <table class="table table-striped table-hover">
         
         <thead>

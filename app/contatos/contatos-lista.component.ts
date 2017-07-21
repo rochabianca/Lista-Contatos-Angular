@@ -11,6 +11,9 @@ import { DialogService } from './../dialog.service';
 
 export class ContatosListaComponent {
   contatos: Contato[];
+  mensagem: {};
+  classesCSS: {};
+  private currentTimeout: any;
 
   constructor(
     private contatoService: ContatoService,
@@ -20,7 +23,10 @@ export class ContatosListaComponent {
       this.contatoService.getContatos()
           .then((contatos: Contato[]) => {
             this.contatos = contatos;
-          }).catch(err => console.log(err));
+          }).catch(err => {
+            console.log(err);
+            this.mostrarMensagem({tipo: 'danger', texto: 'Ocorreu um erro ao buscar a lista de contatos'});
+          });
     }
   
   onDelete(contato: Contato): void {
@@ -31,10 +37,36 @@ export class ContatosListaComponent {
                   .delete(contato)
                   .then(() => {
                     this.contatos = this.contatos.filter((c: Contato) => c.id != contato.id);
+                    this.mostrarMensagem({tipo: 'success', texto: 'Contato deletado com sucesso!'});
                   }).catch(err => {
                     console.log(err);
+                     this.mostrarMensagem({tipo: 'danger', texto: 'Ocorreu um erro ao deletar o contato'});
                   });
           }
         });
+  }
+
+  private mostrarMensagem(mensagem: {tipo: string, texto: string}): void {
+    this.mensagem = mensagem;
+    this.montarClasses(mensagem.tipo);
+
+    if(mensagem.tipo != 'danger') {
+      
+      if(this.currentTimeout) {
+        clearTimeout(this.currentTimeout);
+      }
+
+      this.currentTimeout = setTimeout(() => {
+      this.mensagem = undefined;
+    }, 3000);
+    }
+  }
+
+  private montarClasses(tipo: string): void {
+    this.classesCSS = {
+      'alert': true
+    };
+
+    this.classesCSS['alert-' + tipo] = true;
   }
 }
